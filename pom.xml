@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>by.epam</groupId>
+  <artifactId>task06</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>task06 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+ 
+<properties>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<java.version>1.8</java.version>
+
+		<junit.version>4.12</junit.version>
+		<log4j-api.version>2.13.0</log4j-api.version>
+		<log4j-core.version>2.13.0</log4j-core.version>
+		<javax.servlet.jsp.jstl.version>1.2.1</javax.servlet.jsp.jstl.version>
+		<bootstrap.versiov>4.1.1</bootstrap.versiov>
+		
+	</properties>
+
+	<build>
+		<finalName>task06</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j-api.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j-core.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.servlet.jsp.jstl</artifactId>
+			<version>${javax.servlet.jsp.jstl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.versiov}</version>
+		</dependency>
+		
+	</dependencies>
+
+</project>
