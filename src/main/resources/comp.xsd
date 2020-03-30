@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="Devices">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Device" type="Device" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+	
+	<xs:complexType name="Device">
+		<xs:sequence>
+			<xs:element name="Model" type="xs:string"></xs:element>			
+			<xs:element name="Origin" type="xs:string"></xs:element>
+			<xs:element name="Price" type="xs:decimal"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="Name" use="required" />
+	</xs:complexType>
+	
+	<xs:simpleType name="Name">
+		<xs:restriction base="xs:ID">
+			<xs:pattern value="[A-Za-z0-9 ]{2,}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
