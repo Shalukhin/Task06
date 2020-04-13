@@ -21,26 +21,75 @@
 
 </head>
 
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<h4>Parser</h4>
+	</nav>
+</header>
 
 <body>
 	<table class="table table-bordered text-center">
 		<thead>
 			<tr>
-				<th scope="col">Device</th>
-				<th scope="col">Model</th>
-				<th scope="col">Origin</th>
-				<th scope="col">Price</th>				
+				<th scope="col">Flower</th>
+				<th scope="col">Quantity</th>
+				<th scope="col">Country</th>
+				<th scope="col">Soil</th>
+				<th scope="col">Multiplying</th>
+				<th scope="col">Date</th>
+				<th scope="col">Growing tip
+					<table class="table inner-table text-center table-bordered">
+						<tr>
+							<th scope="col" class="inner-left-column">Name</th>
+							<th scope="col" class="inner-right-column">Value</th>
+						</tr>
+					</table>
+				</th>
+				<th scope="col">Visual Parameters
+					<table class="table inner-table text-center table-bordered">
+						<tr>
+							<th scope="col" class="inner-left-column">Parameter</th>
+							<th scope="col" class="inner-right-column">Value</th>
+						</tr>
+					</table>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
 		
 			<c:forEach var="flower" items="${flowers }">
 			<tr>
-				<td><c:out value="${device.name }" /></td>
-				<td><c:out value="${device.model }" /></td>
-				<td><c:out value="${device.origin }" /></td>
-				<td><c:out value="${device.price }" /></td>
-			
+				<td><c:out value="${flower.name }" /></td>
+				<td><c:out value="${flower.quantity }" /></td>
+				<td><c:out value="${flower.origin }" /></td>
+				<td><c:out value="${flower.soil }" /></td>
+				<td><c:out value="${flower.multiplying }" /></td>
+				<td><fmt:formatDate value="${flower.plantingDate.time}"
+						pattern="dd/MM/yyyy" /></td>
+
+
+				<td><c:forEach var="tip" items="${flower.tips }">
+						<table class="table inner-table text-center table-bordered">
+							<tr>
+								<td class="inner-left-column"><c:out value="${tip.name }" /></td>
+
+								<td class="inner-right-column"><c:out value="${tip.value }" /></td>
+
+							</tr>
+						</table>
+					</c:forEach></td>
+
+				<td><c:forEach var="parameter" items="${flower.parameters }">
+				
+						<table class="table inner-table text-center table-bordered">
+							<tr>
+								<td class="inner-left-column"><c:out value="${parameter.parameter }" /></td>
+
+								<td class="inner-right-column"><c:out value="${parameter.value }" /></td>
+
+							</tr>
+						</table>
+					</c:forEach></td>
 					</tr>
 			</c:forEach>
 			

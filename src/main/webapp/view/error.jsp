@@ -21,13 +21,11 @@
 </head>
 
 <header>
-	<nav class="navbar navbar-expand-lg navbar-light">
-		<h4>Parser</h4>
-	</nav>
+	
 </header>
 
-<body>
-		<div class="error-name">Error</div>
+<body background="view/pict/background.gif">
+		<div class="error-name">Ошибка</div>
 		<div class="error-code">
 		${pageContext.errorData.statusCode}
 		

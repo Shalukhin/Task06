@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import command.impl.ErrorCommand;
-import command.impl.ParseCommand;
+import command.impl.ParserCommand;
 
 import static command.CommandName.*;
 
@@ -17,7 +17,7 @@ public class CommandProvider {
 	private Map<CommandName, Command> repository = new HashMap<>();
 
 	public CommandProvider() {
-		repository.put(PARSE, new ParseCommand());
+		repository.put(PARSE, new ParserCommand());
 		repository.put(ERROR, new ErrorCommand());
 
 	}

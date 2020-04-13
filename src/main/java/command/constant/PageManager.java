@@ -1,8 +1,8 @@
-package command;
+package command.constant;
 
 public enum PageManager {
-
-WELCOME("view/index.jsp"), RESULT("view/result.jsp"), ERROR("view/error.jsp");
+	
+	WELCOME("view/index.jsp"), RESULT("view/result.jsp"), ERROR("view/error.jsp");
 	
 	private String page;
 	

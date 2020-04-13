@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="flowers">
+		
+        <xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded">
+				<xsd:element name="flower" type="flower"/>
+			</xsd:sequence>
+		</xsd:complexType>
+    </xsd:element>
+
+	<xsd:complexType name="flower">
+		<xsd:sequence>
+			<xsd:element name="soil" type="Soil" />
+			<xsd:element name="parameters">
+				<xsd:complexType>
+					<xsd:sequence maxOccurs="unbounded">
+						<xsd:element name="parameter" type="parameter"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="tips">
+				<xsd:complexType>
+					<xsd:sequence  maxOccurs="unbounded">
+						<xsd:element name="tip" type="tip" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="multiplying" type="Multiplying" />
+			<xsd:element name="planting" type="xsd:date" />
+		</xsd:sequence>
+		<xsd:attribute name="name" type="Name" use="required" />
+		<xsd:attribute name="quantity" type="Quantity" default="1" />
+		<xsd:attribute name="origin" type="xsd:string" default="unknown" />
+	</xsd:complexType>
+
+	<xsd:simpleType name="Name">
+		<xsd:restriction base="xsd:ID">
+			<xsd:pattern value="[A-Za-z0-9 ]{2,}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Soil">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="podzolic"></xsd:enumeration>
+			<xsd:enumeration value="underground"></xsd:enumeration>
+			<xsd:enumeration value="podzolic_underground"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="parameter">
+		<xsd:sequence>
+			<xsd:element name="parameterName" type="xsd:string" />
+			<xsd:choice>
+				<xsd:element name="color" type="Color" />
+				<xsd:element name="size" type="Size" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="Color">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z ]{2,}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Size">
+		<xsd:restriction base="xsd:int">
+			<xsd:pattern value="[0-9]{1,}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="tip">
+		<xsd:sequence>
+			<xsd:element name="tipName" type="xsd:string" />
+			<xsd:choice>
+				<xsd:element name="quantity" type="Quantity" />
+				<xsd:element name="necessity" type="Necessity" />
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="Quantity">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{1,}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Necessity">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="true"></xsd:enumeration>
+			<xsd:enumeration value="false"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="Multiplying">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="seed" />
+			<xsd:enumeration value="root" />
+			<xsd:enumeration value="leaf" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

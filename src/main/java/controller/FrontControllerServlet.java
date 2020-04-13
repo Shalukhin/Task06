@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import command.CommandProvider;
-import command.PageManager;
+import command.constant.PageManager;
 
 public class FrontControllerServlet extends HttpServlet{
 
@@ -33,10 +33,9 @@ public class FrontControllerServlet extends HttpServlet{
 	}
 	
 	protected void processRequest(HttpServletRequest req, HttpServletResponse resp) {		
-		
-		PageManager page = commandProvider.getCommand(req.getParameter("command")).execute(req);
 				
 		try {
+			PageManager page = commandProvider.getCommand(req.getParameter("command")).execute(req, resp);
 			req.getRequestDispatcher(page.getPage()).forward(req, resp);
 		} catch (Exception e) {
 			LOGGER.error("Error request", e);
